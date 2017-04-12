@@ -34,8 +34,6 @@ function createLiDiagnose( name )
     $liDiagnose.addClass( "box" );
     $liDiagnose.addClass( "box-small" );
     $liDiagnose.addClass( "list-item-no-enum" );
-    $liDiagnose.addClass( "h-centered" );
-    $liDiagnose.addClass( "v-centered" );
     $liDiagnose.addClass( "v-gap" );
     $liDiagnose.addClass( "transparent" );
     $liDiagnose.addClass( "transparent-hover" );
