@@ -4,8 +4,7 @@
     <Übungen>
         <Übung  Name="Liegestütze" 
                 Problemzone="Oberkörper" 
-                Übungskategorie="Erwärmung" 
-                Schwierigkeitsgrad="leicht">
+                Übungskategorie="Erwärmung">
             
             <Startposition></Startposition>
 
@@ -23,37 +22,285 @@
     </Übungen>
 
     <Diagnosen>
-        <Diagnose Name="Arterose">
-            
-            <AbschnittDefinition>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittDefinition>
 
+		<Diagnose Name="Arthrose - Hüftgelenksprothese" Nebendiagnose="">
+			<AbschnittDefinition>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittDefinition>
             <AbschnittUrsachen>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittUrsachen>
-
             <AbschnittSymptome>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittSymptome>
-
             <AbschnittDiagnose>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittDiagnose>
-
             <AbschnittTherapie>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittTherapie>
-
             <AbschnittVorbeugung>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittVorbeugung>
+		</Diagnose>
 
-        </Diagnose>
+		<Diagnose Name="Arthrose - Kniegelenksprothese" Nebendiagnose="">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
-        <Diagnose Name="Herzimpfarkt">
-            
-            <AbschnittDefinition>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittDefinition>
+		<Diagnose Name="Asthma und COPD (Chronische obstruktive Lungenerkrankungen)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
-            <AbschnittUrsachen>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittUrsachen>
+		<Diagnose Name="Bandscheibenvorfall">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
-            <AbschnittSymptome>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittSymptome>
+		<Diagnose Name="Beinachsendeformitäten">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
-            <AbschnittDiagnose>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittDiagnose>
+		<Diagnose Name="Bluthochdruck (Arterielle Hypertonie)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
-            <AbschnittTherapie>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittTherapie>
+		<Diagnose Name="Diabetes melitus">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
-            <AbschnittVorbeugung>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est </AbschnittVorbeugung>
+		<Diagnose Name="Fettleibigkeit (Adipositas)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
-        </Diagnose>
+		<Diagnose Name="Fußdeformitäten">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Gefäßverkalkung (Arteriosklerose)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Gelenksentzündungen (Arthritis)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Golferellenbogen (Epicindylitis ulnaris humeri)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Haltungsstörungen an der Wirblsäule (Hyperkyphose und Hyperlordose)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Herzinfarkt (Myocardinfarkt) ">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+		
+		<Diagnose Name="Hüftdysplasie">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Impingement (Schulter)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Karpaltunnelsyndrom">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Kreuzbandriss">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+		
+		<Diagnose Name="Lungeninfarkt (Embolie)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Meniskusschäden">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Morbus Bechterew (Spondylitis ankylosans) ">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Rheuma (Polyarthritis)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Rotatorenmanschettenriss">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Schlaganfall (Apoplex)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Schleimbeutelentzündung (Bursitis)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Schultergelenksluxation">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Schulter-Nacken-Beschwerden (Oberes gekreuztes Syndrom)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Skoliose">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Spinalkanalstenose">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Tennisellenbogen (Epicindylitis radialis humeri)">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
+
+		<Diagnose Name="Zehendeformitäten">
+			<AbschnittDefinition></AbschnittDefinition>
+            <AbschnittUrsachen></AbschnittUrsachen>
+            <AbschnittSymptome></AbschnittSymptome>
+            <AbschnittDiagnose></AbschnittDiagnose>
+            <AbschnittTherapie></AbschnittTherapie>
+            <AbschnittVorbeugung></AbschnittVorbeugung>
+		</Diagnose>
 
     </Diagnosen>
 

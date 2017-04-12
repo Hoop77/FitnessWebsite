@@ -1,0 +1,23 @@
+.checkbox {
+	position: relative;
+  border: 1px solid white;
+	display: inline-block;
+	padding: 10px;
+}
+
+.checkbox:hover {
+	cursor: pointer;
+}
+
+.checkbox-checked {
+	background-color: #C26800;
+}
+
+.checkbox-unchecked {
+	background: rgb(0, 0, 0, 0);
+}
+
+.checkbox-label {
+	font-size: 16px;
+	font-weight: 400;
+}

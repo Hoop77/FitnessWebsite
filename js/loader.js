@@ -1,33 +1,30 @@
-function loadDiagnosen() 
+$.fn.hasAttr = function( name )
 {
-    $.ajax( {
-        url: "Daten.xml",
-        dataType: "xml",
-        success: parseDiagnosen,
-        error: function(){ alert( "Error: Diagnosen konnten nicht geladen werden!" ); }
+	var attr = $( this ).attr( name );
+	if( typeof attr !== typeof undefined && attr !== false )
+		return true;
+
+	return false;
+}
+
+function loadTheorie() 
+{
+	loadDiagnoses( function( diagnoses)
+	{
+		setOlDiagnosen( diagnoses );
+	} );
+}
+
+function setOlDiagnosen( diagnoses )
+{
+    var $olDiagnosen = $( "#olDiagnosen" );
+    diagnoses.forEach( function( diagnose ) 
+    {
+        $olDiagnosen.append( createLiDiagnose( diagnose ) );
     } );
 }
 
-function parseDiagnosen( xml )
-{
-    var $Daten = $( xml ).find( "Daten" ),
-        $Diagnosen = $( $Daten ).find( "Diagnosen" )[ 0 ],
-        DiagnoseList = $( $Diagnosen ).find( "Diagnose" ),
-        liDiagnoseList = [];
-
-    $( DiagnoseList ).each( function()
-    {
-        var Diagnose = this;
-            name = $( Diagnose ).attr( "Name" );
-        
-        liDiagnoseList.push( createLiDiagnose( name ) );
-    }, this );
-
-    sortByName( liDiagnoseList );
-    addDiagnosenToContainer( liDiagnoseList );
-}
-
-function createLiDiagnose( name ) 
+function createLiDiagnose( diagnose ) 
 {
     var $liDiagnose = $( "<li></li>" );
 
@@ -35,27 +32,65 @@ function createLiDiagnose( name )
     $liDiagnose.addClass( "box-small" );
     $liDiagnose.addClass( "list-item-no-enum" );
     $liDiagnose.addClass( "v-gap" );
-    $liDiagnose.addClass( "transparent" );
-    $liDiagnose.addClass( "transparent-hover" );
+    $liDiagnose.addClass( "background-transparent" );
+    $liDiagnose.addClass( "background-transparent-hover" );
     $liDiagnose.addClass( "color-transition" );
     $liDiagnose.addClass( "link" );
-    $liDiagnose.addClass( "uppercase" );
-    $liDiagnose.text( name );
-    $liDiagnose.data( "Name", name );
+    $liDiagnose.text( diagnose.name );
+    $liDiagnose.data( "diagnose-name", diagnose.name );
     $liDiagnose.click( function() 
     {
-        window.location = "Diagnosen/" + $( this ).data( "Name" ) + ".html";
+        window.location = "Diagnosen/" + $( this ).data( "diagnose-name" ) + ".html";
     } );
 
     return $liDiagnose;
 }
 
-function sortByName( list )
+function loadDiagnoses( onLoadFinished )
 {
-    list.sort( function( $el1, $el2 ) 
+    $.ajax( {
+        url: "Daten.xml",
+        dataType: "xml",
+        success: function( $xml ) 
+		{ 
+			parseDiagnoses( $xml, onLoadFinished );
+		},
+        error: function()
+		{
+			alert( "Error: Diagnosen konnten nicht geladen werden!" );
+		}
+    } );
+}
+
+function parseDiagnoses( $xml, onLoadFinished )
+{
+    var $Daten = $( $xml ).find( "Daten" ),
+        $Diagnosen = $( $Daten ).find( "Diagnosen" )[ 0 ],
+        $DiagnoseList = $( $Diagnosen ).find( "Diagnose" ),
+		diagnoses = [];
+
+    $( $DiagnoseList ).each( function()
     {
-        var name1 = $( $el1 ).data( "Name" ),
-            name2 = $( $el2 ).data( "Name" );
+        var $Diagnose = this;
+            name = $( $Diagnose ).attr( "Name" ),
+			isNebendiagnose = $( $Diagnose ).hasAttr( "Nebendiagnose" );
+
+		diagnoses.push( { 
+			name: name,
+			isNebendiagnose: isNebendiagnose
+		} );
+    } );
+
+    sortDiagnosesByName( diagnoses );
+	onLoadFinished( diagnoses );
+}
+
+function sortDiagnosesByName( diagnoses )
+{
+    diagnoses.sort( function( diagnose1, diagnose2 ) 
+    {
+        var name1 = diagnose1.name,
+			name2 = diagnose2.name;
             
         if( name1 < name2 ) return -1;
         else if( name2 < name1 ) return 1;
@@ -63,11 +98,39 @@ function sortByName( list )
     } );
 }
 
-function addDiagnosenToContainer( liDiagnoseList )
+function loadPraxis() 
 {
-    var $olDiagnosen = $( "#olDiagnosen" );
-    liDiagnoseList.forEach( function( liDiagnose ) 
-    {
-        $olDiagnosen.append( liDiagnose );
-    } );
+	loadDiagnoses( function( diagnoses )
+	{
+		setDiagnosenCheckboxes( diagnoses );
+	} );
+}
+
+function setDiagnosenCheckboxes( diagnose )
+{
+	var $DiagnosenCheckboxes = $( "#DiagnosenCheckboxes" ),
+		$NebendiagnosenCheckboxes = $( "#NebendiagnosenCheckboxes" );
+
+	diagnose.forEach( function( diagnose )
+	{
+		if( diagnose.isNebendiagnose )
+			$NebendiagnosenCheckboxes.append( createDiagnoseCheckbox( diagnose ) );
+		else
+			$DiagnosenCheckboxes.append( createDiagnoseCheckbox( diagnose ) );
+	} );
+}
+
+function createDiagnoseCheckbox( diagnose )
+{
+	var $diagnoseCheckbox = $( "<div></div>" );
+
+	$diagnoseCheckbox.text( diagnose.name );
+
+	$( $diagnoseCheckbox ).makeCheckbox( function( checked )
+	{
+		// TODO
+	} );
+
+	$diagnoseCheckbox.data( "diagnose-name", diagnose.name );
+	return $diagnoseCheckbox;
 }
