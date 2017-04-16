@@ -10,11 +10,11 @@
 }
 
 .checkbox-checked {
-	background-color: #C26800;
+	background: tomato;
 }
 
 .checkbox-unchecked {
-	background: rgb(0, 0, 0, 0);
+	background: rgba(0, 0, 0, 0);
 }
 
 .checkbox-label {

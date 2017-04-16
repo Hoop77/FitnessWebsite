@@ -45,15 +45,19 @@
 			if( self.onClick != null )
 				self.onClick( checked );
 		};
+
+		self.isChecked = function()
+		{
+			return self.checked;
+		};
 	}
 
-	$.fn.makeCheckbox = function( onClick )
+	$.fn.makeCheckbox = function()
 	{
 		return this.each( function()
 		{
 			var instance = new Checkbox( $( this ) );
 			instance.init();
-			instance.setOnClick( onClick );
 			$( this ).data( "checkbox-instance", instance );
 		} );
 	};
@@ -68,7 +72,7 @@
 			if( me.data( "checkbox-instance" ) !== undefined )
 				checkboxes.push( me.data( "checkbox-instance" ) );
 		} );
-		
+
 		return checkboxes;
 	};
 } 

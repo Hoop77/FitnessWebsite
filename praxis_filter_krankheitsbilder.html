@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
+
+    <title>Theorie</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+		<link href="css/checkbox.css" rel="stylesheet">
+		<link href="css/global-style.css" rel="stylesheet">
+		<link href="css/praxis-style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body onload="loadFilterKrankheitsbilder();">
+
+		<div class="background-image background-image-runner fullsize"></div>
+
+		<!-- header -->
+		<header class="basic-container clearfix">
+			<div class="basic-container inner header-width">
+				<h3 class="header-brand">Praxis</h3>
+				<nav>
+					<ul class="nav header-nav">
+						<li><a href="home.html">Home</a></li>
+						<li class="active"><a href="praxis.html">Praxis</a></li>
+						<li><a href="theorie.html">Theorie</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Kurzbeschreibung -->
+		<section class="basic-container background-transparent">
+			<div class="basic-container content-width">
+				<p class="intro-text">Hier kannst Du Übungen erhalten, die speziell auf dein orthopädisches Krankheitsbild abgestimmt sind.</p>
+			</div>
+		</section>
+
+		<!-- Krankheitsbilder -->
+		<section class="basic-container background-default">
+			<div class="basic-container content-width">
+				<p class="section-text v-gap">Welche orthopädischen Krankheitsbilder treffen auf Dich zu?</p>
+				<div id="krankheitsbilder"></div>
+			</div>
+		</section>
+
+		<!-- Nebendiagnosen -->
+		<section class="basic-container background-transparent">
+			<div class="basic-container content-width">
+				<p class="section-text v-gap">Besitzt Du weitere Nebendiagnosen?</p>
+				<div id="nebendiagnosen"></div>
+			</div>
+		</section>
+
+		<!-- Trainingskategorie -->
+		<section class="basic-container background-default">
+			<div class="basic-container content-width">
+				<p class="section-text v-gap">Wähle Übungskategorien aus.</p>
+				<div id="übungskategorien"></div>
+			</div>
+		</section>
+
+		<!-- Schwierigskeitsgrad -->
+		<section class="basic-container background-transparent">
+			<div class="basic-container content-width">
+				<p class="section-text v-gap">Wähle, welche Schwierigkeitsgrade die Übungen haben sollen.</p>
+				<div id="schwierigkeitsgrade"></div>
+			</div>
+		</section>
+
+		<!-- Übungstabelle -->
+		<section class="basic-container background-default">
+			<div class="basic-container content-width overflow-auto">
+				<div class="box box-medium background-transparent background-transparent-hover">
+					<a class="link" onclick="showÜbungstabelle( 'name' );">ÜBUNGEN ANZEIGEN</a>
+				</div>
+				
+				<table id="übungstabelle" class="invisible">
+					<thead>
+						<tr>
+							<th onclick="showÜbungstabelle( 'name' );">Name</th>
+							<th onclick="showÜbungstabelle( 'körperbereiche' );">Körperbereich</th>
+							<th onclick="showÜbungstabelle( 'übungskategorie' );">Übungskategorie</th>
+							<th onclick="showÜbungstabelle( 'schwierigkeitsgrad' );">Schwierigkeitsgrad</th>
+						</tr>
+					</thead>
+					<tbody id="übungstabelle-body">
+						<tr>
+							<td>Liegestütze</td>
+							<td>Brust</td>
+							<td>Kräftigung</td>
+							<td>mittel</td>
+						</tr>
+						<tr>
+							<td>Liegestütze</td>
+							<td>Brust</td>
+							<td>Kräftigung</td>
+							<td>mittel</td>
+						</tr>
+						<tr>
+							<td>Liegestütze</td>
+							<td>Brust</td>
+							<td>Kräftigung</td>
+							<td>mittel</td>
+						</tr>
+						<tr>
+							<td>Liegestütze</td>
+							<td>Brust</td>
+							<td>Kräftigung</td>
+							<td>mittel</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<!-- footer -->
+		<footer class="basic-container">
+			<p>Credits to Badenhoop Creators</p>
+		</footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  
+		<script type="text/javascript" src="js/checkbox.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/praxis.js"></script>
+
+</body></html>

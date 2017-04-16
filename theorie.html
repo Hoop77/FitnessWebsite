@@ -34,8 +34,8 @@
 		<div class="background-image background-image-lightbulb fullsize"></div>
 
 		<!-- header -->
-		<header class="clearfix">
-			<div class="header-inner h-center">
+		<header class="basic-container clearfix">
+			<div class="basic-container inner header-width">
 				<h3 class="header-brand">Theorie</h3>
 				<nav>
 					<ul class="nav header-nav">
@@ -48,8 +48,26 @@
 		</header>
 
 		<!-- main -->
+		<div class="basic-container background-default v-gap">
+			<div class="basic-container content-width row">
+				<div class="inner col-sm-6">
+					<div class="box box-medium background-transparent background-transparent-hover">
+						<a class="link" onclick="scrollToElement( '#h1Krankheitsbilder' );">Krankheitsbilder</a>
+					</div>
+				</div>
+				<div class="inner col-sm-6">
+					<div class="box box-medium background-transparent background-transparent-hover">
+						<a class="link" onclick="scrollToElement( '#h1Trainingshinweise' );">Trainingshinweise</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<div class="basic-container content-width">
-			<ul id="olDiagnosen"></ul>
+			<h1 id="h1Krankheitsbilder" class="article-headline v-gap">Krankheitsbilder</h1>
+			<ul id="ulKrankheitsbilder" class="v-gap"></ul>
+			<h1 id="h1Trainingshinweise" class="article-headline v-gap">Trainingshinweise</h1>
+			<ul id="ulTrainingshinweise" class="v-gap"></ul>
 		</div>
 
 		<!-- footer -->
@@ -66,6 +84,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   
-		<script type="text/javascript" src="js/loader.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/theorie.js"></script>
 
 </body></html>

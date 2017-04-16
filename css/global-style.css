@@ -34,7 +34,7 @@
 }
 
 
-h1, h2, h3, h4, h5, h6, a, p, ol, li, section, article {
+div, h1, h2, h3, h4, h5, h6, a, p, ol, li, section, article, table, tr, th, td {
   font-family: 'Roboto', sans-serif;
 	padding: 0;
 	margin: 0;
@@ -81,16 +81,18 @@ body {
  * Header
  */
 
-header {
-	position: relative;
+.header-width {
 	width: 100%;
-	z-index: 9999;
 }
 
-.header-inner {
-	width: 700px;
-	padding: 30px;
-	position: relative;
+@media (min-width: 768px) {
+  .header-width {
+		width: 768px;
+	}
+}
+
+header > .inner {
+	padding: 30px 30px 0 30px;
 }
 
 .header-brand {
@@ -157,7 +159,7 @@ footer {
 	padding: 30px;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1280px) {
 	.content-width {
 		width: 1280px;
 	}
@@ -165,7 +167,6 @@ footer {
 
 .box {
 	position: relative;
-	width: 100%;
   border: 1px solid white;
 
 	/* h-center */
@@ -179,23 +180,34 @@ footer {
 .box-big {
   height: 300px;
 
-  font-size: 50px;
+  font-size: 48px;
+  font-weight: 200;
+}
+
+.box-medium {
+	height: 150px;
+
+	font-size: 36px;
   font-weight: 200;
 }
 
 .box-small {
-  height: 80px;
+  height: 60px;
 
-  font-size: 32px;
+  font-size: 24px;
 	font-weight: 300;
+}
+
+.box-small.v-gap {
+	margin-bottom: 30px;
+}
+
+.inner {
+	padding: 10px;
 }
 
 .v-gap {
 	margin-bottom: 50px;
-}
-
-.color-transition {
-  transition: background-color 0.5s ease;
 }
 
 .background-default {
@@ -204,6 +216,10 @@ footer {
 
 .background-transparent {
 	background: rgba( 0, 0, 0, 0 );
+}
+
+.background-transparent-hover {
+	transition: background-color 0.5s ease;
 }
 
 .background-transparent-hover:hover {
@@ -239,4 +255,12 @@ footer {
 .link:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.overflow-auto {
+	overflow: auto;
+}
+
+.invisible {
+	display: none;
 }

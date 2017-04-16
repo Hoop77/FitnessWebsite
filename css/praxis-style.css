@@ -1,5 +1,6 @@
-.main {
-	padding-top: 50px;
+.intro-text {
+	font-size: 48px;
+	font-weight: 200;
 }
 
 article {
@@ -19,17 +20,51 @@ section > .content-width > .basic-container {
 	max-width: 600px;
 }
 
-.section-headline {
+.section-text {
   font-size: 32px;
 	font-weight: 300;
+}
+
+.section-text.v-gap {
 	margin-bottom: 50px;
 }
 
-.section-text {
-  font-size: 18px;
-	font-weight: 300;
+.checkbox, .choicebox {
+	margin: 0 20px 20px 0;
 }
 
-.checkbox {
-	margin: 0 20px 20px 0;
+table {
+	width: 100%;
+	margin-top: 60px;
+}
+
+tbody tr {
+	transition: background-color 0.25s ease;
+}
+
+tbody tr:hover {
+	background: #232323;
+	cursor: pointer;
+}
+
+th, td {
+	border-collapse: collapse;
+	padding: 15px;
+}
+
+td {
+	border-top: 2px solid #232323;
+}
+
+th {
+	border: 2px solid #0a0a0a;
+	color: black;
+	background: tomato;
+	font-size: 24px;
+	font-weight: 300;
+	text-align: center;
+}
+
+th:hover {
+	cursor: pointer;
 }

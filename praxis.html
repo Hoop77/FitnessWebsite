@@ -22,14 +22,6 @@
 		<link href="css/global-style.css" rel="stylesheet">
 		<link href="css/praxis-style.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
-
-		<link href="css/checkbox.css" rel="stylesheet">
-		<link href="css/global-style.css" rel="stylesheet">
-		<link href="css/praxis-style.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -42,8 +34,8 @@
 		<div class="background-image background-image-runner fullsize"></div>
 
 		<!-- header -->
-		<header class="clearfix">
-			<div class="header-inner h-center">
+		<header class="basic-container clearfix">
+			<div class="basic-container inner header-width">
 				<h3 class="header-brand">Praxis</h3>
 				<nav>
 					<ul class="nav header-nav">
@@ -56,34 +48,14 @@
 		</header>
 
 		<!-- main -->
-		<!-- Diagnosen -->
-		<div class="basic-container main">
-			<section class="basic-container background-default">
-				<div class="basic-container content-width">
-					<h1 class="section-headline">Welche Diagnosen treffen auf Dich zu?</h1>
-					<div id="DiagnosenCheckboxes"></div>
-				</div>
-			</section>
+		<div class="basic-container content-width">
+			<div class="box box-big background-transparent background-transparent-hover v-gap">
+				<a class="link" href="praxis_filter_krankheitsbilder.html">Übungen für spezielle Krankheitsbilder</a>
+			</div>
 
-			<!-- Nebendiagnosen -->
-			<section class="basic-container background-transparent">
-				<div class="basic-container content-width">
-					<h1 class="section-headline">Besitzt Du weitere Nebendiagnosen?</h1>
-					<div id="NebendiagnosenCheckboxes"></div>
-				</div>
-			</section>
-
-			<!-- Trainingskategorie -->
-			<section class="basic-container background-default">
-				<div class="basic-container content-width">
-					<h1 class="section-headline">Trainingskategorie</h1>
-					<div id="choicebox-Erwaermung" class="choicebox" data-group="Trainingskategorien">Erwärmung</div>
-					<div id="choicebox-Mobilisation" class="choicebox" data-group="Trainingskategorien">Mobilisation</div>
-					<div id="choicebox-Dehnung" class="choicebox" data-group="Trainingskategorien">Dehnung</div>
-					<div id="choicebox-Kraeftigung" class="choicebox" data-group="Trainingskategorien">Kräftigung</div>
-					<div id="choicebox-Stabilisation" class="choicebox" data-group="Trainingskategorien">Stabilisation</div>
-				</div>
-			</section>
+			<div class="box box-big background-transparent background-transparent-hover v-gap">
+				<a class="link" href="praxis_filter_körperbereiche.html">Übungen für bestimmte Körperbereiche</a>
+			</div>
 		</div>
 
 		<!-- footer -->
@@ -100,7 +72,4 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   
-		<script type="text/javascript" src="js/checkbox.js"></script>
-    <script type="text/javascript" src="js/loader.js"></script>
-
 </body></html>
