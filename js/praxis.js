@@ -1,38 +1,64 @@
+const FILTER_KRANKHEITSBILDER = 0;
+const FILTER_KÖRPERBEREICHE = 1;
+
 var krankheitsbilderCheckboxMap = {},
+	körperbereicheCheckboxMap = {},
 	nebendiagnosenCheckboxMap = {},
 	übungskategorienCheckboxMap = {},
 	schwierigkeitsgradeCheckboxMap = {};
 
-function loadFilterKrankheitsbilder() 
-{
+function loadFilter( filter ) 
+{	
 	var parseFunction = function( $xml )
 	{
 		parseKörperbereiche( $xml );
 		parseÜbungskategorien( $xml );
 		parseSchwierigkeitsgrade( $xml );
 		parseÜbungen( $xml );
-		parseKrankheitsbilder( $xml );
-		parseNebendiagnosen( $xml );
-	};
-	
+
+		parseWithFilter( filter, $xml );
+	}
+
 	var onParsingFinished = function()
 	{
-		createCheckboxes( $( "#krankheitsbilder" ), getKrankheitsbilder(), krankheitsbilderCheckboxMap );
-		createCheckboxes( $( "#nebendiagnosen" ), getNebendiagnosen(), nebendiagnosenCheckboxMap );
 		createCheckboxes( $( "#übungskategorien" ), getÜbungskategorien(), übungskategorienCheckboxMap );
 		createCheckboxes( $( "#schwierigkeitsgrade" ), getSchwierigkeitsgrade(), schwierigkeitsgradeCheckboxMap );
+
+		createCheckboxesWithFilter( filter );
 	};
 
 	parseXmlData( parseFunction, onParsingFinished );
 }
 
-function createCheckboxes( $container, dataList, checkboxMap )
+function parseWithFilter( filter, $xml )
 {
-	for( var data of dataList )
+	if( filter == FILTER_KRANKHEITSBILDER )
 	{
-		var $checkbox = createCheckbox( data.name )
+		parseKrankheitsbilder( $xml );
+		parseNebendiagnosen( $xml );
+	}
+}
+
+function createCheckboxesWithFilter( filter )
+{
+	if( filter == FILTER_KRANKHEITSBILDER )
+	{
+		createCheckboxes( $( "#krankheitsbilder" ), getKrankheitsbilder(), krankheitsbilderCheckboxMap );
+		createCheckboxes( $( "#nebendiagnosen" ), getNebendiagnosen(), nebendiagnosenCheckboxMap );
+	}
+	else if( filter == FILTER_KÖRPERBEREICHE )
+	{
+		createCheckboxes( $( "#körperbereiche" ), getKörperbereiche(), körperbereicheCheckboxMap );
+	}
+}
+
+function createCheckboxes( $container, items, checkboxMap )
+{
+	for( var item of items )
+	{
+		var $checkbox = createCheckbox( item.name )
 		$container.append( $checkbox );
-		checkboxMap[ data.name ] = $( $checkbox ).getCheckboxes()[ 0 ];
+		checkboxMap[ item.name ] = $( $checkbox ).getCheckboxes()[ 0 ];
 	}
 }
 
@@ -49,12 +75,11 @@ function createCheckbox( label )
 	return $checkbox;
 }
 
-function showÜbungstabelle( sortProperty )
+function showÜbungstabelle( filter, sortProperty )
 {
 	var $übungstabelle = $( "#übungstabelle" ),
-		übungen = getÜbungenBySelectedKrankheitsbilder();
+		übungen = getÜbungenWithFilter( filter );
 
-	übungen = filterÜbungenBySelectedNebendiagnosen( übungen );
 	übungen = filterÜbungenBySelectedÜbungskategorien( übungen );
 	übungen = filterÜbungenBySelectedSchwierigkeitsgrade( übungen );
 
@@ -64,6 +89,23 @@ function showÜbungstabelle( sortProperty )
 
 	$übungstabelle.removeClass( "invisible" );
 	scrollToElement( $übungstabelle );
+}
+
+function getÜbungenWithFilter( filter )
+{
+	var übungen = [];
+
+	if( filter == FILTER_KRANKHEITSBILDER )
+	{
+		übungen = getÜbungenBySelectedKrankheitsbilder();
+		übungen = filterÜbungenBySelectedNebendiagnosen( übungen );
+	}
+	else if( filter == FILTER_KÖRPERBEREICHE )
+	{
+		übungen = getÜbungenBySelectedKörperbereiche();
+	}
+
+	return übungen;
 }
 
 function getÜbungenBySelectedKrankheitsbilder()
@@ -82,6 +124,20 @@ function getÜbungenBySelectedKrankheitsbilder()
 	}
 
 	return mapToArray( übungenMap );
+}
+
+function getÜbungenBySelectedKörperbereiche()
+{
+	var übungen = mapToArray( getÜbungenAsMap() );
+	return übungen.filter( function( übung )
+	{
+		for( var körperbereich of übung.körperbereiche )
+		{
+			if( körperbereicheCheckboxMap[ körperbereich ].isChecked() )
+				return true;
+		}
+		return false;
+	} );
 }
 
 function filterÜbungenBySelectedNebendiagnosen( übungen )
@@ -116,9 +172,6 @@ function filterÜbungenBySelectedÜbungskategorien( übungen )
 {
 	return übungen.filter( function( übung )
 	{
-		if( !übungskategorienCheckboxMap.hasOwnProperty( übung.übungskategorie ) )
-			alert( "Error: Übung '" + übung.name + "' besitzt eine nicht existierende Übungskategorie!" );
-
 		return übungskategorienCheckboxMap[ übung.übungskategorie ].isChecked();
 	} );
 }
@@ -127,9 +180,6 @@ function filterÜbungenBySelectedSchwierigkeitsgrade( übungen )
 {
 	return übungen.filter( function( übung )
 	{
-		if( !übungskategorienCheckboxMap.hasOwnProperty( übung.übungskategorie ) )
-			alert( "Error: Übung '" + übung.name + "' besitzt einen nicht existierenden Schwierigkeitsgrad!" );
-
 		return schwierigkeitsgradeCheckboxMap[ übung.schwierigkeitsgrad ].isChecked();
 	} );
 }

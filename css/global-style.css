@@ -3,22 +3,38 @@
  */
 
 .h-center {
-	margin-left: auto;
-	margin-right: auto;
+	display: flex;
+	justify-content: center;
 }
 
 .h-left {
-	float: left;
+	display: flex;
+	justify-content: flex-start;
 }
 
 .h-right {
-	float: right;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.h-wrap {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .v-center {
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.v-top {
+	display: flex;
+  align-items: flex-start;
+}
+
+.v-bottom {
+	display: flex;
+  align-items: flex-end;
 }
 
 .text-center {
@@ -34,7 +50,7 @@
 }
 
 
-div, h1, h2, h3, h4, h5, h6, a, p, ol, li, section, article, table, tr, th, td {
+div, h1, h2, h3, h4, h5, h6, a, p, ol, ul, li, section, article, table, tr, th, td {
   font-family: 'Roboto', sans-serif;
 	padding: 0;
 	margin: 0;
@@ -169,15 +185,19 @@ footer {
 	position: relative;
   border: 1px solid white;
 
-	/* h-center */
-	margin: 0 auto;
+	width: auto;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: 300;
+
 	/* v-center */
 	display: flex;
-  justify-content: center;
+	justify-content: center;
   align-items: center;
 }
 
 .box-big {
+	width: 100%;
   height: 300px;
 
   font-size: 48px;
@@ -185,6 +205,7 @@ footer {
 }
 
 .box-medium {
+	width: 100%;
 	height: 150px;
 
 	font-size: 36px;
@@ -192,6 +213,7 @@ footer {
 }
 
 .box-small {
+	width: 100%;
   height: 60px;
 
   font-size: 24px;
@@ -208,6 +230,10 @@ footer {
 
 .v-gap {
 	margin-bottom: 50px;
+}
+
+.h-gap {
+	margin-right: 30px;
 }
 
 .background-default {

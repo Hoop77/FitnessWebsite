@@ -30,7 +30,7 @@
     <![endif]-->
   </head>
 
-  <body onload="loadFilter( FILTER_KRANKHEITSBILDER );">
+  <body onload="loadFilter( FILTER_KÖRPERBEREICHE );">
 
 		<div class="background-image background-image-runner fullsize"></div>
 
@@ -48,88 +48,48 @@
 			</div>
 		</header>
 
-		<!-- Kurzbeschreibung -->
+		<!-- Übungsname -->
 		<section class="basic-container background-transparent">
 			<div class="basic-container content-width">
-				<p class="intro-text">Hier kannst Du Übungen erhalten, die speziell auf dein orthopädisches Krankheitsbild abgestimmt sind.</p>
+				<p class="intro-text">Liegestütze</p>
 			</div>
 		</section>
 
-		<!-- Krankheitsbilder -->
+		<!-- Video + Stichpunkte -->
 		<section class="basic-container background-default">
-			<div class="basic-container content-width">
-				<p class="section-text v-gap">Welche orthopädischen Krankheitsbilder treffen auf Dich zu?</p>
-				<div id="krankheitsbilder"></div>
-			</div>
-		</section>
-
-		<!-- Nebendiagnosen -->
-		<section class="basic-container background-transparent">
-			<div class="basic-container content-width">
-				<p class="section-text v-gap">Besitzt Du weitere Nebendiagnosen?</p>
-				<div id="nebendiagnosen"></div>
-			</div>
-		</section>
-
-		<!-- Trainingskategorie -->
-		<section class="basic-container background-default">
-			<div class="basic-container content-width">
-				<p class="section-text v-gap">Wähle Übungskategorien aus.</p>
-				<div id="übungskategorien"></div>
-			</div>
-		</section>
-
-		<!-- Schwierigskeitsgrad -->
-		<section class="basic-container background-transparent">
-			<div class="basic-container content-width">
-				<p class="section-text v-gap">Wähle, welche Schwierigkeitsgrade die Übungen haben sollen.</p>
-				<div id="schwierigkeitsgrade"></div>
-			</div>
-		</section>
-
-		<!-- Übungstabelle -->
-		<section class="basic-container background-default">
-			<div class="basic-container content-width overflow-auto">
-				<div class="box box-medium background-transparent background-transparent-hover">
-					<a class="link" onclick="showÜbungstabelle( FILTER_KRANKHEITSBILDER, 'name' );">ÜBUNGEN ANZEIGEN</a>
+			<div class="basic-container content-width h-center v-center h-wrap">
+				<div class="video-container">
+					<video src="Übungen/Videos/Liegestütze.mp4" autoplay controls>
+						Dieser Browser ist nicht in der Lage Videos anzuzeigen!
+					</video>
 				</div>
-				
-				<table id="übungstabelle" class="invisible">
-					<thead>
-						<tr>
-							<th onclick="showÜbungstabelle( FILTER_KRANKHEITSBILDER, 'name' );">Name</th>
-							<th onclick="showÜbungstabelle( FILTER_KRANKHEITSBILDER, 'körperbereiche' );">Körperbereich</th>
-							<th onclick="showÜbungstabelle( FILTER_KRANKHEITSBILDER, 'übungskategorie' );">Übungskategorie</th>
-							<th onclick="showÜbungstabelle( FILTER_KRANKHEITSBILDER, 'schwierigkeitsgrad' );">Schwierigkeitsgrad</th>
-						</tr>
-					</thead>
-					<tbody id="übungstabelle-body">
-						<tr>
-							<td>Liegestütze</td>
-							<td>Brust</td>
-							<td>Kräftigung</td>
-							<td>mittel</td>
-						</tr>
-						<tr>
-							<td>Liegestütze</td>
-							<td>Brust</td>
-							<td>Kräftigung</td>
-							<td>mittel</td>
-						</tr>
-						<tr>
-							<td>Liegestütze</td>
-							<td>Brust</td>
-							<td>Kräftigung</td>
-							<td>mittel</td>
-						</tr>
-						<tr>
-							<td>Liegestütze</td>
-							<td>Brust</td>
-							<td>Kräftigung</td>
-							<td>mittel</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="text-left">
+					<ul class="notes v-gap">
+						<li class="article-text">Arme im 90° Winkel beugen</li>
+						<li class="article-text">Rückenmuskulatur anspannen</li>
+						<li class="article-text">circa eine Sekunde lang</li>
+						<li class="article-text">immer ein-und ausatmen</li>
+					</ul>
+					<div class="box background-transparent background-transparent-hover">
+						<a class="link" href="../PDFs/Liegestütze.pdf" target="_blank">Detailierte Beschreibung (PDF)</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Start- und Endposition -->
+		<section class="basic-container background-transparent">
+			<div class="basic-container content-width h-center h-wrap">
+				<div class="position-container">
+					<p class="position-headline">Startposition</p>
+					<div class="position-image" style="background: white;"></div>
+					<p class="position-description">Das ist ein hübsches Bildchen.</p>
+				</div>
+				<div class="position-container">
+					<p class="position-headline">Endposition</p>
+					<div class="position-image" style="background: white;"></div>
+					<p class="position-description">Das ist ein hübsches Bildchen.</p>
+				</div>
 			</div>
 		</section>
 

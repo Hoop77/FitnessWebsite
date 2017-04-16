@@ -25,8 +25,8 @@
 				BeschreibungStartposition="Beschreibung für Startposition"
 				BeschreibungEndposition="Beschreibung für Endposition">
             
-			<Körperbereich>Brust</Körperbereich>
-			<Körperbereich>Arme</Körperbereich>
+			<Körperbereich>Oberkörper</Körperbereich>
+			<Körperbereich>Rücken</Körperbereich>
 
 			<Stichpunkt>Stichpunkt 1</Stichpunkt>
 			<Stichpunkt>Stichpunkt 2</Stichpunkt>

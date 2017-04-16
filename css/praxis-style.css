@@ -7,6 +7,11 @@ article {
 	padding-top: 50px;
 }
 
+.article-text {
+	font-size: 20px;
+	font-weight: 300;
+}
+
 .article-headline {
   font-size: 50px;
 	font-weight: 200;
@@ -67,4 +72,36 @@ th {
 
 th:hover {
 	cursor: pointer;
+}
+
+.video-container {
+	padding: 30px;
+}
+
+.notes li {
+	margin-bottom: 10px;
+}
+
+.notes.v-gap {
+	margin-bottom: 30px;
+}
+
+.position-container {
+	padding: 50px;
+}
+
+.position-image {
+	width: 500px;
+	height: 500px;
+	
+	margin: 15px 0 10px 0;
+}
+
+.position-headline {
+	font-size: 32px;
+	font-weight: 300;
+}
+
+.position-description {
+	font-size: 12px;
 }

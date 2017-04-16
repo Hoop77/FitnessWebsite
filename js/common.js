@@ -41,7 +41,7 @@ function getTrainingshinweise()
 	return trainingshinweise;
 }
 
-function getÜbungenMap()
+function getÜbungenAsMap()
 {
 	return übungenMap;
 }
@@ -132,7 +132,7 @@ function parseKörperbereiche( $xml )
         var $Körperbereich = this;
             name = $( $Körperbereich ).attr( "Name" );
 
-		krankheitsbilder.push( new Körperbereich( name ) );
+		körperbereiche.push( new Körperbereich( name ) );
     } );
 }
 
@@ -320,29 +320,6 @@ function scrollToElement( el )
 		{ scrollTop: $( el ).offset().top }, 
 		{ duration : 'slow' }
 	);
-}
-
-function filterDuplicatesOfSortedArray( arr )
-{
-	if( arr.length == 0 )
-		return [];
-
-	var filtered = [],
-		last = arr[ 0 ];
-
-	filtered.push( last );
-
-	for( var i = 1; i < arr.length; i++ )
-	{
-		var curr = arr[ i ];
-
-		if( curr != last )
-			filtered.push( curr );
-
-		last = curr;
-	}
-
-	return filtered;
 }
 
 function openLink( link )
