@@ -106,19 +106,9 @@ function Trainingshinweis( name )
 
 function parseXmlData( parseFunction, onParsingFinished )
 {
-	$.ajax( {
-        url: "Daten.xml",
-        dataType: "xml",
-        success: function( $xml ) 
-		{ 
-			parseFunction( $xml );
-			onParsingFinished();
-		},
-        error: function()
-		{
-			alert( "Error: Daten konnten nicht geladen werden!" );
-		}
-    } );
+	var $xml = $.parseXML( data );
+	parseFunction( $xml );
+	onParsingFinished();
 }
 
 function parseKörperbereiche( $xml )

@@ -7,21 +7,20 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 
-    <title>Theorie</title>
+    <title>Praxis</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-		<link href="css/checkbox.css" rel="stylesheet">
-		<link href="css/global-style.css" rel="stylesheet">
-		<link href="css/praxis-style.css" rel="stylesheet">
+		<link href="../../css/checkbox.css" rel="stylesheet">
+		<link href="../../css/global-style.css" rel="stylesheet">
+		<link href="../../css/praxis-style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -30,7 +29,7 @@
     <![endif]-->
   </head>
 
-  <body onload="loadFilter( FILTER_KÖRPERBEREICHE );">
+  <body>
 
 		<div class="background-image background-image-runner fullsize"></div>
 
@@ -40,9 +39,9 @@
 				<h3 class="header-brand">Praxis</h3>
 				<nav>
 					<ul class="nav header-nav">
-						<li><a href="home.html">Home</a></li>
-						<li class="active"><a href="praxis.html">Praxis</a></li>
-						<li><a href="theorie.html">Theorie</a></li>
+						<li><a href="../../home.html">Home</a></li>
+						<li class="active"><a href="../../praxis.html">Praxis</a></li>
+						<li><a href="../../theorie.html">Theorie</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -51,7 +50,7 @@
 		<!-- Übungsname -->
 		<section class="basic-container background-transparent">
 			<div class="basic-container content-width">
-				<p class="intro-text">Liegestütze</p>
+				<p class="intro-text">$$Name$$</p>
 			</div>
 		</section>
 
@@ -59,19 +58,17 @@
 		<section class="basic-container background-default">
 			<div class="basic-container content-width h-center v-center h-wrap">
 				<div class="video-container">
-					<video src="Übungen/Videos/Liegestütze.mp4" autoplay controls>
+					<video src="../Videos/$$Name$$.mp4" controls>
 						Dieser Browser ist nicht in der Lage Videos anzuzeigen!
 					</video>
 				</div>
 				<div class="text-left">
 					<ul class="notes v-gap">
-						<li class="article-text">Arme im 90° Winkel beugen</li>
-						<li class="article-text">Rückenmuskulatur anspannen</li>
-						<li class="article-text">circa eine Sekunde lang</li>
-						<li class="article-text">immer ein-und ausatmen</li>
+						<!-- example: <li class="article-text">Arme im 90° Winkel beugen</li> -->
+						$$Stichpunkte$$
 					</ul>
 					<div class="box background-transparent background-transparent-hover">
-						<a class="link" href="../PDFs/Liegestütze.pdf" target="_blank">Detailierte Beschreibung (PDF)</a>
+						<a class="link" href="../PDFs/$$Name$$.pdf" target="_blank">Detailierte Beschreibung (PDF)</a>
 					</div>
 				</div>
 			</div>
@@ -82,13 +79,13 @@
 			<div class="basic-container content-width h-center h-wrap">
 				<div class="position-container">
 					<p class="position-headline">Startposition</p>
-					<div class="position-image" style="background: white;"></div>
-					<p class="position-description">Das ist ein hübsches Bildchen.</p>
+					<div class="position-image" style="background: url( '../Startposition_$$Name$$.jpg' );"></div>
+					<p class="position-description">$$BeschreibungStartposition$$</p>
 				</div>
 				<div class="position-container">
 					<p class="position-headline">Endposition</p>
-					<div class="position-image" style="background: white;"></div>
-					<p class="position-description">Das ist ein hübsches Bildchen.</p>
+					<div class="position-image" style="background: url( '../Endposition_$$Name$$.jpg' );"></div>
+					<p class="position-description">$$BeschreibungEndposition$$</p>
 				</div>
 			</div>
 		</section>
@@ -101,14 +98,10 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
+    <script src="../../js/jquery.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="js/bootstrap.js"></script>
+    <script src="../../js/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-  
-		<script type="text/javascript" src="js/checkbox.js"></script>
-		<script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/praxis.js"></script>
+    <script src="../../js/ie10-viewport-bug-workaround.js"></script>
 
 </body></html>

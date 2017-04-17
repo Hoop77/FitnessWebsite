@@ -80,6 +80,7 @@ th:hover {
 
 .notes li {
 	margin-bottom: 10px;
+	margin-left: 30px;
 }
 
 .notes.v-gap {
