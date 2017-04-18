@@ -54,12 +54,12 @@ function createCheckboxesWithFilter( filter )
 
 function createCheckboxes( $container, items, checkboxMap )
 {
-	for( var item of items )
+	items.forEach( function( item )
 	{
 		var $checkbox = createCheckbox( item.name )
 		$container.append( $checkbox );
 		checkboxMap[ item.name ] = $( $checkbox ).getCheckboxes()[ 0 ];
-	}
+	} );
 }
 
 function createCheckbox( label )
@@ -112,16 +112,18 @@ function getÜbungenBySelectedKrankheitsbilder()
 {
 	var übungenMap = {};
 
-	for( var krankheitsbild of getKrankheitsbilder() )
+	getKrankheitsbilder().forEach( function( krankheitsbild )
 	{
 		var krankheitsbildCheckbox = krankheitsbilderCheckboxMap[ krankheitsbild.name ];
 
 		if( krankheitsbildCheckbox.isChecked() )
 		{
-			for( var übung of krankheitsbild.übungen )
+			krankheitsbild.übungen.forEach( function( übung )
+			{
 				übungenMap[ übung ] = findÜbungByName( übung );
+			} );
 		}
-	}
+	} );
 
 	return mapToArray( übungenMap );
 }
@@ -131,8 +133,9 @@ function getÜbungenBySelectedKörperbereiche()
 	var übungen = mapToArray( getÜbungenAsMap() );
 	return übungen.filter( function( übung )
 	{
-		for( var körperbereich of übung.körperbereiche )
+		for( var i = 0; i < übung.körperbereiche.length; i++ )
 		{
+			var körperbereich = übung.körperbereiche[ i ];
 			if( körperbereicheCheckboxMap[ körperbereich ].isChecked() )
 				return true;
 		}
@@ -154,16 +157,18 @@ function getÜbungsverboteBySelectedNebendiagnosenAsMap()
 {
 	var übungsverboteMap = {};
 
-	for( var nebendiagnose of getNebendiagnosen() )
+	getNebendiagnosen().forEach( function( nebendiagnose )
 	{
 		var nebendiagnoseCheckbox = nebendiagnosenCheckboxMap[ nebendiagnose.name ];
 
 		if( nebendiagnoseCheckbox.isChecked() )
 		{
-			for( var übungsverbot of nebendiagnose.übungsverbote )
+			nebendiagnose.übungsverbote.forEach( function( übungsverbot )
+			{
 				übungsverboteMap[ übungsverbot ] = übungsverbot;
+			} );
 		}
-	}
+	} );
 
 	return übungsverboteMap;
 }
@@ -210,8 +215,10 @@ function createRows( übungen )
 
 	$body.empty();
 
-	for( var übung of übungen )
+	übungen.forEach( function( übung )
+	{
 		$body.append( createRow( übung ) );
+	} );
 }
 
 function createRow( übung )

@@ -321,14 +321,14 @@ function openLink( link )
 function enumerize( items )
 {
 	var enumeration = "",
-		i = items.length - 1;
-
-	for( var item of items )
+		i = items.length;
+	
+	items.forEach( function( item )
 	{
 		enumeration += item;
 		if( i > 0 ) enumeration += ", ";
 		i--;
-	}
+	} );
 
 	return enumeration;
 }
