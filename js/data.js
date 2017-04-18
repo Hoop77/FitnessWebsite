@@ -1,4 +1,4 @@
-var data = "\
+var xmlData = "\
 <?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\
 <Daten>\
 \
@@ -120,3 +120,5 @@ var data = "\
 \
 </Daten>\
 ";
+
+function getXmlData() { return xmlData; }

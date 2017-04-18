@@ -106,7 +106,7 @@ function Trainingshinweis( name )
 
 function parseXmlData( parseFunction, onParsingFinished )
 {
-	var $xml = $.parseXML( data );
+	var $xml = $.parseXML( getXmlData() );
 	parseFunction( $xml );
 	onParsingFinished();
 }
