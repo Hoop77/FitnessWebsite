@@ -78,9 +78,19 @@ th:hover {
 	padding: 30px;
 }
 
+ul.notes {
+	list-style-type: none;
+}
+
 .notes li {
 	margin-bottom: 10px;
 	margin-left: 30px;
+}
+
+.notes li:before {
+	content: '\2014';
+  position: absolute;
+  margin-left: -20px;
 }
 
 .notes.v-gap {
@@ -105,4 +115,8 @@ th:hover {
 
 .position-description {
 	font-size: 12px;
+}
+
+#pdf-link {
+	max-width: 400px;
 }

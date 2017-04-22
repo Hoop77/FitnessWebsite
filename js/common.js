@@ -1,11 +1,11 @@
 var körperbereiche = [],
 	übungskategorien = [],
-	schwierigkeitsgrade = [],
 	krankheitsbilder = [],
 	nebendiagnosen = [],
 	trainingshinweise = [];
 
-var übungenMap = {};
+var übungenMap = {},
+	schwierigkeitsgradeMap = {};
 
 // =========================
 // getter
@@ -23,7 +23,7 @@ function getÜbungskategorien()
 
 function getSchwierigkeitsgrade()
 {
-	return schwierigkeitsgrade;
+	return mapToArray( schwierigkeitsgradeMap );
 }
 
 function getKrankheitsbilder()
@@ -41,9 +41,9 @@ function getTrainingshinweise()
 	return trainingshinweise;
 }
 
-function getÜbungenAsMap()
+function getÜbungen()
 {
-	return übungenMap;
+	return mapToArray( übungenMap );
 }
 
 // =========================
@@ -60,9 +60,10 @@ function Übungskategorie( name )
 	this.name = name;
 }
 
-function Schwierigkeitsgrad( name )
+function Schwierigkeitsgrad( name, farbe )
 {
 	this.name = name;
+	this.farbe = farbe;
 }
 
 function Übung( 
@@ -149,10 +150,11 @@ function parseSchwierigkeitsgrade( $xml )
 
     $( $SchwierigkeitsgradList ).each( function()
     {
-        var $Schwierigkeitsgrad = this;
-            name = $( $Schwierigkeitsgrad ).attr( "Name" );
+        var $Schwierigkeitsgrad = this,
+            name = $( $Schwierigkeitsgrad ).attr( "Name" ),
+			farbe = $( $Schwierigkeitsgrad ).attr( "Farbe" );
 
-		schwierigkeitsgrade.push( new Schwierigkeitsgrad( name ) );
+		schwierigkeitsgradeMap[ name ] = new Schwierigkeitsgrad( name, farbe );
     } );
 }
 
@@ -304,6 +306,11 @@ function findÜbungByName( name )
 	return übungenMap[ name ];
 }
 
+function findSchwierigkeitsgradByName( name )
+{
+	return schwierigkeitsgradeMap[ name ];
+}
+
 function scrollToElement( el ) 
 {
 	$( "html, body" ).animate(
@@ -321,7 +328,7 @@ function openLink( link )
 function enumerize( items )
 {
 	var enumeration = "",
-		i = items.length;
+		i = items.length - 1;
 	
 	items.forEach( function( item )
 	{

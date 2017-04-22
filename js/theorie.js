@@ -3,25 +3,40 @@ function loadTheorie()
 	var parseFunction = function( $xml )
 	{
 		parseKrankheitsbilder( $xml );
+		parseNebendiagnosen( $xml );
 		parseTrainingshinweise( $xml );
 	};
 	
 	var onParsingFinished = function()
 	{
-		showKrankheitsbilder();
+		showKrankheitsbilderAndNebendiagnosen();
 		showTrainingshinweise();
 	};
 
 	parseXmlData( parseFunction, onParsingFinished );
 }
 
-function showKrankheitsbilder()
+function showKrankheitsbilderAndNebendiagnosen()
 {
     var $ulKrankheitsbilder = $( "#ulKrankheitsbilder" );
-    krankheitsbilder.forEach( function( krankheitsbild ) 
+	var items = [];
+
+	krankheitsbilder.forEach( function( krankheitsbild )
+	{
+		items.push( krankheitsbild.name );
+	} );
+
+	nebendiagnosen.forEach( function( nebendiagnose )
+	{
+		items.push( nebendiagnose.name );
+	} );
+
+	items.sort();
+
+    items.forEach( function( item ) 
     {
         $ulKrankheitsbilder.append(
-			createListItem( krankheitsbild.name, "Krankheitsbilder/" + krankheitsbild.name + ".pdf" ) 
+			createListItem( item, "Krankheitsbilder/" + item + ".pdf" )
 		);
     } );
 }

@@ -130,7 +130,7 @@ function getÜbungenBySelectedKrankheitsbilder()
 
 function getÜbungenBySelectedKörperbereiche()
 {
-	var übungen = mapToArray( getÜbungenAsMap() );
+	var übungen = getÜbungen();
 	return übungen.filter( function( übung )
 	{
 		for( var i = 0; i < übung.körperbereiche.length; i++ )
@@ -229,17 +229,18 @@ function createRow( übung )
 		$colÜbungskategorie = $( "<td></td>" ),
 		$colSchwierigkeitsgrad = $( "<td></td>" );
 
-	$colName.text( übung.name );
-	$row.append( $colName );
-
-	$colKörperbereich.text( enumerize( übung.körperbereiche ) );
-	$row.append( $colKörperbereich );
-
 	$colÜbungskategorie.text( übung.übungskategorie );
 	$row.append( $colÜbungskategorie );
 
 	$colSchwierigkeitsgrad.text( übung.schwierigkeitsgrad );
+	$colSchwierigkeitsgrad.css( "color", findSchwierigkeitsgradByName( übung.schwierigkeitsgrad ).farbe );
 	$row.append( $colSchwierigkeitsgrad );
+
+	$colKörperbereich.text( enumerize( übung.körperbereiche ) );
+	$row.append( $colKörperbereich );
+
+	$colName.text( übung.name );
+	$row.append( $colName );
 
 	$row.data( "link", "Übungen/Seiten/" + übung.name + ".html" );
 
