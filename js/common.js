@@ -2,7 +2,8 @@ var körperbereiche = [],
 	übungskategorien = [],
 	krankheitsbilder = [],
 	nebendiagnosen = [],
-	trainingshinweise = [];
+	trainingshinweise = [],
+	faqEinträge = [];
 
 var übungenMap = {},
 	schwierigkeitsgradeMap = {};
@@ -99,6 +100,12 @@ function Nebendiagnose( name, übungsverbote )
 function Trainingshinweis( name )
 {
 	this.name = name;
+}
+
+function FAQEintrag( frage, antwort )
+{
+	this.frage = frage;
+	this.antwort = antwort;
 }
 
 // =========================
@@ -269,6 +276,24 @@ function parseTrainingshinweise( $xml )
     } );
 
     sortByName( trainingshinweise );
+}
+
+function parseFAQEinträge( $xml )
+{
+	var $Daten = $( $xml ).find( "Daten" ),
+        $FAQ = $( $Daten ).find( "FAQ" )[ 0 ],
+        $EintragList = $( $FAQ ).find( "Eintrag" );
+
+    $( $EintragList ).each( function()
+    {
+        var $Eintrag = this,
+            $Frage = $( $Eintrag ).find( "Frage" )[ 0 ],
+			frage = $( $Frage ).text(),
+			$Antwort = $( $Eintrag ).find( "Antwort" )[ 0 ],
+			antwort = $( $Antwort ).text();
+
+		faqEinträge.push( new FAQEintrag( frage, antwort ) );
+    } );
 }
 
 // =========================

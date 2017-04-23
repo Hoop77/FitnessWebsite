@@ -10,16 +10,16 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 
-    <title>$$Name$$</title>
+    <title>FAQ</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-		<link href="../../css/global-style.css" rel="stylesheet">
-		<link href="../../css/theorie-style.css" rel="stylesheet">
+		<link href="css/global-style.css" rel="stylesheet">
+		<link href="css/faq-style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -28,32 +28,28 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="loadFAQ();">
 
 		<div class="background-image background-image-lightbulb fullsize"></div>
 
 		<!-- header -->
 		<header class="basic-container clearfix">
 			<div class="basic-container inner header-width">
-				<h3 class="header-brand">Theorie</h3>
+				<h3 class="header-brand">FAQ</h3>
 				<nav>
 					<ul class="nav header-nav">
 						<li><a href="home.html">Home</a></li>
 						<li><a href="praxis.html">Praxis</a></li>
-						<li class="active"><a href="theorie.html">Theorie</a></li>
-						<li><a href="faq.html">FAQ</a></li>
+						<li><a href="theorie.html">Theorie</a></li>
+						<li class="active"><a href="faq.html">FAQ</a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 
 		<!-- main -->
-		<div class="basic-container">
-			<article class="basic-container">
-				<h1 class="article-headline v-gap">$$Name$$</h1>
-				
-				$$Sections$$
-			</article>
+		<div id="faq" class="basic-container">
+
 		</div>
 
 		<!-- footer -->
@@ -64,10 +60,14 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../js/bootstrap.js"></script>
+    <script src="js/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+  
+		<script type="text/javascript" src="js/data.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/faq.js"></script>
 
 </body></html>

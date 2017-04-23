@@ -1,0 +1,15 @@
+.faq-section {
+	padding: 30px;
+}
+
+.faq-section h3 {
+	margin-bottom: 10px;
+	font-size: 32px;
+	font-weight: 300;
+}
+
+.faq-section p {
+	margin-bottom: 30px;
+	font-size: 18px;
+	font-weight: 300;
+}

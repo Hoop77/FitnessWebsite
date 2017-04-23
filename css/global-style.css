@@ -2,6 +2,11 @@
  * Globals
  */
 
+.basic-container {
+	position: relative;
+	margin: 0 auto;
+}
+
 .h-center {
 	display: flex;
 	justify-content: center;
@@ -163,11 +168,6 @@ footer {
 	position: fixed;
 	width: 100%;
 	height: 100%;
-}
-
-.basic-container {
-	position: relative;
-	margin: 0 auto;
 }
 
 .content-width {

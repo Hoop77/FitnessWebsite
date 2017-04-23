@@ -450,6 +450,18 @@ var xmlData = "\
 		<Trainingshinweis Name=\"Trainingshinweis 3\"></Trainingshinweis>\
 	</Trainingshinweise>\
 \
+	<FAQ>\
+		<Eintrag>\
+			<Frage>Das ist die Frage zum 1. Eintrag</Frage>\
+			<Antwort>Das ist die Antwort zum 1. Eintrag</Antwort>\
+		</Eintrag>\
+\
+		<Eintrag>\
+			<Frage>Das ist die Frage zum 2. Eintrag</Frage>\
+			<Antwort>Das ist die Antwort zum 2. Eintrag</Antwort>\
+		</Eintrag>\
+	</FAQ>\
+\
 </Daten>\
 ";
 

@@ -17,7 +17,7 @@ function loadFilter( filter )
 		parseÜbungen( $xml );
 
 		parseWithFilter( filter, $xml );
-	}
+	};
 
 	var onParsingFinished = function()
 	{

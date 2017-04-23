@@ -36,7 +36,7 @@ function showKrankheitsbilderAndNebendiagnosen()
     items.forEach( function( item ) 
     {
         $ulKrankheitsbilder.append(
-			createListItem( item, "Krankheitsbilder/" + item + ".pdf" )
+			createListItem( item, "Krankheitsbilder/Seiten/" + item + ".html" )
 		);
     } );
 }
