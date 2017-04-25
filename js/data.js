@@ -411,7 +411,7 @@ var xmlData = "\
 		<Krankheitsbild Name=\"Fußdeformitäten\"></Krankheitsbild>\
 		<Krankheitsbild Name=\"Gelenksentzündungen (Arthritis)\"></Krankheitsbild>\
 		<Krankheitsbild Name=\"Golferellenbogen (Epicindylitis ulnaris humeri)\"></Krankheitsbild>\
-		<Krankheitsbild Name=\"Haltungsstörungen an der Wirblsäule (Hyperkyphose und Hyperlordose)\"></Krankheitsbild>\
+		<Krankheitsbild Name=\"Haltungsabweichungen der Wirbelsäule (Rundrücken, Hohlrücken, Hohlrundrücken)\"></Krankheitsbild>\
 		<Krankheitsbild Name=\"Hüftdysplasie\"></Krankheitsbild>\
 		<Krankheitsbild Name=\"Impingement (Schulter)\">\
 			<Übung>Liegestütze</Übung></Krankheitsbild>\

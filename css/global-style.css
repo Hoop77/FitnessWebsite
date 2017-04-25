@@ -54,29 +54,13 @@
 	text-align: right;
 }
 
-
-div, h1, h2, h3, h4, h5, h6, a, p, ol, ul, li, section, article, table, tr, th, td {
+div, h1, h2, h3, h4, h5, h6, a, a:focus, a:hover, p, ol, ul, li, section, article, table, header, footer, tr, th, td {
   font-family: 'Roboto', sans-serif;
 	padding: 0;
 	margin: 0;
-}
 
-
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+	/* globale Farbe */
+	color: white;
 }
 
 
@@ -89,7 +73,6 @@ body {
   height: 100%;
 }
 body {
-  color: #fff;
   text-align: center;
 }
 
@@ -132,8 +115,6 @@ header > .inner {
   padding-left: 0;
   font-size: 16px;
   font-weight: bold;
-  color: #fff; /* IE8 proofing */
-  color: rgba(255,255,255,.75);
   border-bottom: 2px solid transparent;
 }
 .header-nav > li > a:hover,
@@ -145,7 +126,6 @@ header > .inner {
 .header-nav > .active > a,
 .header-nav > .active > a:hover,
 .header-nav > .active > a:focus {
-  color: #fff;
   border-bottom-color: #fff;
 }
 
@@ -160,8 +140,6 @@ header > .inner {
 
 footer {
 	padding: 50px 0;
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
 }
 
 .fullsize {
