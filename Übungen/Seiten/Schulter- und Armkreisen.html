@@ -74,7 +74,7 @@
 				</div>
 				<div class="basic-container h-center">
 					<div id="pdf-link" class="box background-transparent background-transparent-hover">
-						<a class="link" href="../PDFs/Schulter- und Armkreisen.pdf" target="_blank">Detailierte Beschreibung (PDF)</a>
+						<a class="link" onclick="showDetailierteBeschreibung();">Detailierte Beschreibung</a>
 					</div>
 				</div>
 			</div>
@@ -84,15 +84,23 @@
 		<section class="basic-container background-transparent">
 			<div class="basic-container content-width h-center h-wrap">
 				<div class="position-container">
-					<p class="position-headline">Startposition</p>
+					<p class="section-text">Startposition</p>
 					<div class="position-image" style="background: url( '../Positionen/Startposition_Schulter- und Armkreisen.jpg' ); background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;"></div>
 					<p class="position-description">Arme und Schultern sind locker und entspannt</p>
 				</div>
 				<div class="position-container">
-					<p class="position-headline">Endposition</p>
+					<p class="section-text">Endposition</p>
 					<div class="position-image" style="background: url( '../Positionen/Endposition_Schulter- und Armkreisen.jpg' ); background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;"></div>
 					<p class="position-description">Arme in einer entspannten Haltung nach hinten oben kreisen lassen</p>
 				</div>
+			</div>
+		</section>
+
+		<!-- Bild der detailierten Beschreibung -->
+		<section id="detailierteBeschreibung" class="invisible basic-container background-default">
+			<p class="section-text">Detailierte Beschreibung</p>
+			<div class="basic-container content-width">
+				<div style="height: 1000px; background: url('../JPGs/Schulter- und Armkreisen.jpg'); background-size: contain; background-repeat: no-repeat; background-position: 50% 50%;"></div>
 			</div>
 		</section>
 
@@ -109,5 +117,8 @@
     <script src="../../js/bootstrap.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../js/ie10-viewport-bug-workaround.js"></script>
+
+		<script src="../../js/common.js"></script>
+		<script src="../../js/praxis.js"></script>
 
 </body></html>

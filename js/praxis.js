@@ -251,3 +251,10 @@ function createRow( übung )
 
 	return $row;
 }
+
+function showDetailierteBeschreibung()
+{
+	var $detailierteBeschreibung = $( '#detailierteBeschreibung' );
+	$detailierteBeschreibung.removeClass( "invisible" );
+	scrollToElement( $detailierteBeschreibung );
+}
