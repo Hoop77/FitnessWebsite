@@ -1,15 +1,30 @@
-.faq-section {
+.faq-topic-container {
+	max-width: 700px;
+	width: 100%;
 	padding: 30px;
 }
 
-.faq-section h3 {
-	margin-bottom: 10px;
+.faq-topic {
+	margin-bottom: 30px;
 	font-size: 32px;
 	font-weight: 300;
 }
 
-.faq-section p {
-	margin-bottom: 30px;
+.faq-question, .faq-answer {
 	font-size: 18px;
 	font-weight: 300;
+}
+
+.faq-answer {
+	margin-top: 10px;
+	margin-left: 30px;
+}
+
+.faq-entry {
+	margin-left: 30px;
+	padding: 15px;
+}
+
+.faq-entry:hover {
+	cursor: pointer;
 }

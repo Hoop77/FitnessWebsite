@@ -1,11 +1,252 @@
 const FILTER_KRANKHEITSBILDER = 0;
 const FILTER_KÖRPERBEREICHE = 1;
 
+var körperbereiche = [],
+	übungskategorien = [],
+	krankheitsbilder = [],
+	nebendiagnosen = [];
+
+var übungenMap = {},
+	schwierigkeitsgradeMap = {};
+
 var krankheitsbilderCheckboxMap = {},
 	körperbereicheCheckboxMap = {},
 	nebendiagnosenCheckboxMap = {},
 	übungskategorienCheckboxMap = {},
 	schwierigkeitsgradeCheckboxMap = {};
+
+// =========================
+// getter
+// =========================
+
+function getKörperbereiche()
+{
+	return körperbereiche;
+}
+
+function getÜbungskategorien()
+{
+	return übungskategorien;
+}
+
+function getSchwierigkeitsgrade()
+{
+	return mapToArray( schwierigkeitsgradeMap );
+}
+
+function getKrankheitsbilder()
+{
+	return krankheitsbilder;
+}
+
+function getNebendiagnosen()
+{
+	return nebendiagnosen;
+}
+
+function getÜbungen()
+{
+	return mapToArray( übungenMap );
+}
+
+// =========================
+// classes
+// =========================
+
+function Körperbereich( name )
+{
+	this.name = name;
+}
+
+function Übungskategorie( name )
+{
+	this.name = name;
+}
+
+function Schwierigkeitsgrad( name, farbe )
+{
+	this.name = name;
+	this.farbe = farbe;
+}
+
+function Krankheitsbild( name, übungen )
+{
+	this.name = name;
+	this.übungen = übungen;
+}
+
+function Nebendiagnose( name, übungsverbote )
+{
+	this.name = name;
+	this.übungsverbote = übungsverbote;
+}
+
+function Übung( 
+	name, 
+	übungskategorie, 
+	schwierigkeitsgrad, 
+	beschreibungStartposition, 
+	beschreibungEndposition,
+	körperbereiche,
+	stichpunkte )
+{
+	this.name = name;
+	this.übungskategorie = übungskategorie;
+	this.schwierigkeitsgrad = schwierigkeitsgrad;
+	this.beschreibungStartposition = beschreibungEndposition;
+	this.beschreibungEndposition = beschreibungEndposition;
+	this.körperbereiche = körperbereiche;
+	this.stichpunkte = stichpunkte;
+}
+
+// =========================
+// parsing functions
+// =========================
+
+function parseKörperbereiche( $xml )
+{
+	var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+		$Körperbereiche = $( $Daten ).find( "Körperbereiche" )[ 0 ],
+		$KörperbereichList = $( $Körperbereiche ).find( "Körperbereich" );
+
+    $( $KörperbereichList ).each( function()
+    {
+        var $Körperbereich = this;
+            name = $( $Körperbereich ).attr( "Name" );
+
+		körperbereiche.push( new Körperbereich( name ) );
+    } );
+}
+
+function parseÜbungskategorien( $xml )
+{
+    var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+        $Übungskategorien = $( $Daten ).find( "Übungskategorien" )[ 0 ],
+        $ÜbungskategorieList = $( $Übungskategorien ).find( "Übungskategorie" );
+
+    $( $ÜbungskategorieList ).each( function()
+    {
+        var $Übungskategorie = this;
+            name = $( $Übungskategorie ).attr( "Name" );
+
+		übungskategorien.push( new Übungskategorie( name ) );
+    } );
+}
+
+function parseSchwierigkeitsgrade( $xml )
+{
+    var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+        $Schwierigkeitsgrade = $( $Daten ).find( "Schwierigkeitsgrade" )[ 0 ],
+        $SchwierigkeitsgradList = $( $Schwierigkeitsgrade ).find( "Schwierigkeitsgrad" );
+
+    $( $SchwierigkeitsgradList ).each( function()
+    {
+        var $Schwierigkeitsgrad = this,
+            name = $( $Schwierigkeitsgrad ).attr( "Name" ),
+			farbe = $( $Schwierigkeitsgrad ).attr( "Farbe" );
+
+		schwierigkeitsgradeMap[ name ] = new Schwierigkeitsgrad( name, farbe );
+    } );
+}
+
+function parseÜbungen( $xml )
+{
+	var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+		$Praxis = $( $xml ).find( "Praxis" )[ 0 ],
+        $Übungen = $( $Praxis ).find( "Übungen" )[ 0 ],
+        $ÜbungList = $( $Übungen ).find( "Übung" );
+
+    $( $ÜbungList ).each( function()
+    {
+        var $Übung = this,
+            name = $( $Übung ).attr( "Name" ),
+			übungskategorie = $( $Übung ).attr( "Übungskategorie" ),
+			schwierigkeitsgrad = $( $Übung ).attr( "Schwierigkeitsgrad" ),
+			beschreibungStartposition = $( $Übung ).attr( "BeschreibungStartposition" ),
+			beschreibungEndposition = $( $Übung ).attr( "BeschreibungEndposition" ),
+			körperbereiche = [],
+			$KörperbereichList = $( $Übung ).find( "Körperbereich" ),
+			stichpunkte = [],
+			$StichpunktList = $( $Übung ).find( "Stichpunkt" );
+
+		$( $KörperbereichList ).each( function()
+		{
+			var $Körperbereich = this,
+				körperbereich = $( $Körperbereich ).text();
+			körperbereiche.push( körperbereich );
+		} );
+
+		$( $StichpunktList ).each( function()
+		{
+			var $Stichpunkt = this,
+				stichpunkt = $( $Stichpunkt ).text();
+			stichpunkte.push( stichpunkt );
+		} );
+
+		übungenMap[ name ] = new Übung(
+			name, 
+			übungskategorie, 
+			schwierigkeitsgrad, 
+			beschreibungStartposition,
+			beschreibungEndposition,
+			körperbereiche,
+			stichpunkte );
+    } );
+}
+
+function parseKrankheitsbilder( $xml )
+{
+    var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+		$Praxis = $( $xml ).find( "Praxis" )[ 0 ],
+        $Krankheitsbilder = $( $Praxis ).find( "Krankheitsbilder" )[ 0 ],
+        $KrankheitsbildList = $( $Krankheitsbilder ).find( "Krankheitsbild" );
+
+    $( $KrankheitsbildList ).each( function()
+    {
+        var $Krankheitsbild = this,
+            name = $( $Krankheitsbild ).attr( "Name" ),
+			$ÜbungList = $( $Krankheitsbild ).find( "Übung" ),
+			übungen = [];
+
+		$( $ÜbungList ).each( function()
+		{
+			var $Übung = this,
+				übung = $( $Übung ).text();
+			übungen.push( übung );
+		} );
+
+		krankheitsbilder.push( new Krankheitsbild( name, übungen ) );
+    } );
+
+    sortByName( krankheitsbilder );
+}
+
+function parseNebendiagnosen( $xml )
+{
+    var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+		$Praxis = $( $xml ).find( "Praxis" )[ 0 ],
+        $Nebendiagnosen = $( $Praxis ).find( "Nebendiagnosen" )[ 0 ],
+        $NebendiagnoseList = $( $Nebendiagnosen ).find( "Nebendiagnose" );
+
+    $( $NebendiagnoseList ).each( function()
+    {
+        var $Nebendiagnose = this,
+            name = $( $Nebendiagnose ).attr( "Name" ),
+			$ÜbungsverbotList = $( $Nebendiagnose ).find( "Übungsverbot" ),
+			übungsverbote = [];
+
+		$( $ÜbungsverbotList ).each( function()
+		{
+			var $Übungsverbot = this,
+				übungsverbot = $( $Übungsverbot ).text();
+			übungsverbote.push( übungsverbot );
+		} );
+
+		nebendiagnosen.push( new Nebendiagnose( name, übungsverbote ) );
+    } );
+
+    sortByName( nebendiagnosen );
+}
 
 function loadFilter( filter ) 
 {	
@@ -246,7 +487,7 @@ function createRow( übung )
 
 	$row.click( function() 
 	{
-		openLink( $( this ).data( "link" ) );
+		openLinkInNewTab( $( this ).data( "link" ) );
 	} );
 
 	return $row;

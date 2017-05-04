@@ -1,42 +1,77 @@
-function loadTheorie() 
+var krankheitsbilder = [],
+	trainingshinweise = [];
+
+function Krankheitsbild( name )
+{
+	this.name = name;
+}
+
+function Trainingshinweis( name )
+{
+	this.name = name;
+}
+
+function parseKrankheitsbilder( $xml )
+{
+    var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+		$Theorie = $( $Daten ).find( "Theorie" )[ 0 ],
+        $Krankheitsbilder = $( $Theorie ).find( "Krankheitsbilder" )[ 0 ],
+        $KrankheitsbildList = $( $Krankheitsbilder ).find( "Krankheitsbild" );
+
+    $( $KrankheitsbildList ).each( function()
+    {
+        var $Krankheitsbild = this,
+            name = $( $Krankheitsbild ).attr( "Name" );
+
+		krankheitsbilder.push( new Krankheitsbild( name ) );
+    } );
+
+    sortByName( krankheitsbilder );
+}
+
+function parseTrainingshinweise( $xml )
+{
+    var $Daten = $( $xml ).find( "Daten" )[ 0 ],
+		$Theorie = $( $Daten ).find( "Theorie" )[ 0 ],
+        $Trainingshinweise = $( $Theorie ).find( "Trainingshinweise" )[ 0 ],
+        $TrainingshinweisList = $( $Trainingshinweise ).find( "Trainingshinweis" );
+
+    $( $TrainingshinweisList ).each( function()
+    {
+        var $Trainingshinweis = this,
+            name = $( $Trainingshinweis ).attr( "Name" );
+
+		trainingshinweise.push( new Trainingshinweis( name ) );
+    } );
+
+    sortByName( trainingshinweise );
+}
+
+function loadTheorie()
 {
 	var parseFunction = function( $xml )
 	{
 		parseKrankheitsbilder( $xml );
-		parseNebendiagnosen( $xml );
 		parseTrainingshinweise( $xml );
 	};
 	
 	var onParsingFinished = function()
 	{
-		showKrankheitsbilderAndNebendiagnosen();
+		showKrankheitsbilder();
 		showTrainingshinweise();
 	};
 
 	parseXmlData( parseFunction, onParsingFinished );
 }
 
-function showKrankheitsbilderAndNebendiagnosen()
+function showKrankheitsbilder()
 {
     var $ulKrankheitsbilder = $( "#ulKrankheitsbilder" );
-	var items = [];
 
-	krankheitsbilder.forEach( function( krankheitsbild )
-	{
-		items.push( krankheitsbild.name );
-	} );
-
-	nebendiagnosen.forEach( function( nebendiagnose )
-	{
-		items.push( nebendiagnose.name );
-	} );
-
-	items.sort();
-
-    items.forEach( function( item ) 
+    krankheitsbilder.forEach( function( krankheitsbild ) 
     {
         $ulKrankheitsbilder.append(
-			createListItem( item, "Krankheitsbilder/Seiten/" + item + ".html" )
+			createListItem( krankheitsbild.name, "Krankheitsbilder/Seiten/" + krankheitsbild.name + ".html" )
 		);
     } );
 }
