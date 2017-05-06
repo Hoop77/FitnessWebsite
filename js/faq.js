@@ -1,4 +1,5 @@
-var faqThemen = [];
+var faqThemen = [],
+	counter = 0;
 
 function FAQThema( name, einträge )
 {
@@ -44,61 +45,92 @@ function loadFAQ()
 {	
 	var parseFunction = function( $xml )
 	{
-		parseFAQEinträge( $xml );
+		parseFAQThemen( $xml );
 	};
 
 	var onParsingFinished = function()
 	{
-		createFAQEinträge();
+		createFAQThemen();
 	};
 
 	parseXmlData( parseFunction, onParsingFinished );
 }
 
-function createFAQEinträge()
+function createFAQThemen()
 {
-	var $faq = $( "#faq" ), 
+	var $faq = $( "#faq" ),
 		i = 0;
-	
-	faqEinträge.forEach( function( faqEintrag )
+
+	faqThemen.forEach( function( faqThema )
 	{
 		var backgroundTransparent = (i % 2 == 0);
-		$faq.append( createFAQEintrag( faqEintrag, backgroundTransparent ) );
+		$faq.append( createFAQThema( faqThema, backgroundTransparent ) );
 		i++;
 	} );
 }
 
-function createFAQEintrag( faqEintrag, backgroundTransparent )
+function createFAQThema( faqThema, backgroundTransparent )
 {
-	var $faqEintrag = $( "<section></section>" ),
-		$container = $( "<div></div>" ),
-		$h3Frage = $( "<h3></h3>" ),
-		$pFrage = $( "<p></p>" ),
-		$h3Antwort = $( "<h3></h3>" ),
-		$pAntwort = $( "<p></p>" );
-	
-	$faqEintrag.addClass( "basic-container" );
-	$faqEintrag.addClass( "faq-section" );
+	var $themaSection = $( "<section></section>" ),
+		$themaContainer = $( "<div></div>" ),
+		$themaHeadline = $( "<h3></h3>" ),
+		$einträge = $( "<ol></ol>" );
+
+	$themaSection.addClass( "basic-container" );
 	if( backgroundTransparent )
-		$faqEintrag.addClass( "background-transparent" );
+		$themaSection.addClass( "background-transparent" );
 	else
-		$faqEintrag.addClass( "background-default" );
+		$themaSection.addClass( "background-default" );
 
-	$container.addClass( "basic-container" );
-	$container.addClass( "content-width" );
+	$themaContainer.addClass( "basic-container" );
+	$themaContainer.addClass( "faq-thema-container" );
 
-	$h3Frage.text( "Frage" );
-	$pFrage.text( faqEintrag.frage );
+	$themaHeadline.addClass( "faq-thema-headline" );
+	$themaHeadline.text( faqThema.name );
 
-	$h3Antwort.text( "Antwort" );
-	$pAntwort.text( faqEintrag.antwort );
+	faqThema.einträge.forEach( function( faqEintrag )
+	{
+		$einträge.append( createFAQEintrag( faqEintrag ) );
+	} );
 
-	$container.append( $h3Frage );
-	$container.append( $pFrage );
-	$container.append( $h3Antwort );
-	$container.append( $pAntwort );
+	$themaContainer.append( $themaHeadline );
+	$themaContainer.append( $einträge );
+	$themaSection.append( $themaContainer );
 
-	$faqEintrag.append( $container );
+	return $themaSection;
+}
 
-	return $faqEintrag;
+function createFAQEintrag( faqEintrag )
+{
+	var $eintrag = $( "<li></li>" ),
+		$frage = $( "<p></p>" ),
+		$antwort = $( "<p></p>" ),
+		$antwortHighlight = $( "<span></span>" );
+		$antwortText = $( "<span></span>" );
+
+	$eintrag.addClass( "faq-eintrag" );
+	$eintrag.addClass( "background-transparent-hover" );
+	$eintrag.data( "antwort", $antwort );
+	$eintrag.click( function()
+	{
+		$( this ).data( "antwort" ).slideToggle( 'medium' );
+	} );
+
+	$frage.addClass( "faq-frage" );
+	$frage.text( faqEintrag.frage );
+
+	$antwort.addClass( "faq-antwort" );
+
+	$antwortHighlight.addClass( "faq-antwort-highlight" );
+	$antwortHighlight.text( "Antwort: " );
+	$antwort.append( $antwortHighlight );
+
+	$antwortText.text( faqEintrag.antwort );
+	$antwort.append( $antwortText );
+	$antwort.css( { "display" : "none" } );
+
+	$eintrag.append( $frage );
+	$eintrag.append( $antwort );
+
+	return $eintrag;
 }

@@ -35,16 +35,6 @@ function sortByProperty( arr, property )
     } );
 }
 
-function findÜbungByName( name )
-{
-	return übungenMap[ name ];
-}
-
-function findSchwierigkeitsgradByName( name )
-{
-	return schwierigkeitsgradeMap[ name ];
-}
-
 function scrollToElement( el ) 
 {
 	$( "html, body" ).animate(

@@ -2,12 +2,12 @@ const FILTER_KRANKHEITSBILDER = 0;
 const FILTER_KÖRPERBEREICHE = 1;
 
 var körperbereiche = [],
-	übungskategorien = [],
 	krankheitsbilder = [],
 	nebendiagnosen = [];
 
-var übungenMap = {},
-	schwierigkeitsgradeMap = {};
+var übungskategorienMap = {},
+	schwierigkeitsgradeMap = {},
+	übungenMap = {};
 
 var krankheitsbilderCheckboxMap = {},
 	körperbereicheCheckboxMap = {},
@@ -26,7 +26,7 @@ function getKörperbereiche()
 
 function getÜbungskategorien()
 {
-	return übungskategorien;
+	return mapToArray( übungskategorienMap );
 }
 
 function getSchwierigkeitsgrade()
@@ -49,6 +49,21 @@ function getÜbungen()
 	return mapToArray( übungenMap );
 }
 
+function findÜbungskategorieByName( name )
+{
+	return übungskategorienMap[ name ];
+}
+
+function findSchwierigkeitsgradByName( name )
+{
+	return schwierigkeitsgradeMap[ name ];
+}
+
+function findÜbungByName( name )
+{
+	return übungenMap[ name ];
+}
+
 // =========================
 // classes
 // =========================
@@ -58,9 +73,10 @@ function Körperbereich( name )
 	this.name = name;
 }
 
-function Übungskategorie( name )
+function Übungskategorie( name, reihenfolge )
 {
 	this.name = name;
+	this.reihenfolge = reihenfolge;
 }
 
 function Schwierigkeitsgrad( name, farbe )
@@ -127,9 +143,10 @@ function parseÜbungskategorien( $xml )
     $( $ÜbungskategorieList ).each( function()
     {
         var $Übungskategorie = this;
-            name = $( $Übungskategorie ).attr( "Name" );
+            name = $( $Übungskategorie ).attr( "Name" ),
+			reihenfolge = $( $Übungskategorie ).attr( "Reihenfolge" );
 
-		übungskategorien.push( new Übungskategorie( name ) );
+		übungskategorienMap[ name ] = new Übungskategorie( name, reihenfolge );
     } );
 }
 
@@ -255,6 +272,7 @@ function loadFilter( filter )
 		parseKörperbereiche( $xml );
 		parseÜbungskategorien( $xml );
 		parseSchwierigkeitsgrade( $xml );
+		parseNebendiagnosen( $xml );
 		parseÜbungen( $xml );
 
 		parseWithFilter( filter, $xml );
@@ -264,6 +282,7 @@ function loadFilter( filter )
 	{
 		createCheckboxes( $( "#übungskategorien" ), getÜbungskategorien(), übungskategorienCheckboxMap );
 		createCheckboxes( $( "#schwierigkeitsgrade" ), getSchwierigkeitsgrade(), schwierigkeitsgradeCheckboxMap );
+		createCheckboxes( $( "#nebendiagnosen" ), getNebendiagnosen(), nebendiagnosenCheckboxMap );
 
 		createCheckboxesWithFilter( filter );
 	};
@@ -276,7 +295,6 @@ function parseWithFilter( filter, $xml )
 	if( filter == FILTER_KRANKHEITSBILDER )
 	{
 		parseKrankheitsbilder( $xml );
-		parseNebendiagnosen( $xml );
 	}
 }
 
@@ -285,7 +303,6 @@ function createCheckboxesWithFilter( filter )
 	if( filter == FILTER_KRANKHEITSBILDER )
 	{
 		createCheckboxes( $( "#krankheitsbilder" ), getKrankheitsbilder(), krankheitsbilderCheckboxMap );
-		createCheckboxes( $( "#nebendiagnosen" ), getNebendiagnosen(), nebendiagnosenCheckboxMap );
 	}
 	else if( filter == FILTER_KÖRPERBEREICHE )
 	{
@@ -321,6 +338,7 @@ function showÜbungstabelle( filter, sortProperty )
 	var $übungstabelle = $( "#übungstabelle" ),
 		übungen = getÜbungenWithFilter( filter );
 
+	übungen = filterÜbungenBySelectedNebendiagnosen( übungen );
 	übungen = filterÜbungenBySelectedÜbungskategorien( übungen );
 	übungen = filterÜbungenBySelectedSchwierigkeitsgrade( übungen );
 
@@ -339,7 +357,6 @@ function getÜbungenWithFilter( filter )
 	if( filter == FILTER_KRANKHEITSBILDER )
 	{
 		übungen = getÜbungenBySelectedKrankheitsbilder();
-		übungen = filterÜbungenBySelectedNebendiagnosen( übungen );
 	}
 	else if( filter == FILTER_KÖRPERBEREICHE )
 	{
@@ -444,8 +461,19 @@ function sortÜbungen( übungen, sortProperty )
 			else return 0; 
 		} );
 	}
+	else if( sortProperty == "übungskategorie" )
+	{
+		übungen.sort( function( übung1, übung2 )
+		{
+			var reihenfolge1 = findÜbungskategorieByName( übung1.übungskategorie ).reihenfolge,
+				reihenfolge2 = findÜbungskategorieByName( übung2.übungskategorie ).reihenfolge;
+				
+			if( reihenfolge1 < reihenfolge2 ) return -1;
+			else if( reihenfolge2 < reihenfolge1 ) return 1;
+			else return 0; 
+		} );
+	}
 	else if( sortProperty == "name"
-		|| sortProperty == "übungskategorie"
 		|| sortProperty == "schwierigkeitsgrad" )
 		 sortByProperty( übungen, sortProperty );
 }

@@ -17,12 +17,12 @@
 	</Körperbereiche>
 
 	<Übungskategorien>
-		<Übungskategorie Name="Allgemeine Erwärmung" />
-		<Übungskategorie Name="Spezielle Erwärmung" />
-		<Übungskategorie Name="Mobilisation" />
-		<Übungskategorie Name="Dehnung" />
-		<Übungskategorie Name="Kräftigung" />
-		<Übungskategorie Name="Stabilisation" />
+		<Übungskategorie Name="Allgemeine Erwärmung" Reihenfolge="1" />
+		<Übungskategorie Name="Spezielle Erwärmung" Reihenfolge="2" />
+		<Übungskategorie Name="Mobilisation" Reihenfolge="3" />
+		<Übungskategorie Name="Dehnung" Reihenfolge="4" />
+		<Übungskategorie Name="Kräftigung" Reihenfolge="5" />
+		<Übungskategorie Name="Stabilisation" Reihenfolge="6" />
 	</Übungskategorien>
 
 	<Schwierigkeitsgrade>

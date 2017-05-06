@@ -49,17 +49,25 @@
 		</header>
 
 		<!-- Kurzbeschreibung -->
-		<section class="basic-container background-default">
+		<section class="basic-container background-transparent">
 			<div class="basic-container content-width">
 				<p class="intro-text">Hier kannst Du Übungen für bestimmte Körperbereich erhalten.</p>
 			</div>
 		</section>
 
 		<!-- Körperbereiche -->
-		<section class="basic-container background-transparent">
+		<section class="basic-container background-default">
 			<div class="basic-container content-width">
 				<p class="section-text v-gap">Welche Körperbereiche sollen dabei sein?</p>
 				<div id="körperbereiche"></div>
+			</div>
+		</section>
+
+		<!-- Nebendiagnosen -->
+		<section class="basic-container background-transparent">
+			<div class="basic-container content-width">
+				<p class="section-text v-gap">Besitzt Du weitere Nebendiagnosen?</p>
+				<div id="nebendiagnosen"></div>
 			</div>
 		</section>
 
@@ -83,7 +91,7 @@
 		<section class="basic-container background-default">
 			<div class="basic-container content-width overflow-auto">
 				<div class="box box-medium background-transparent background-transparent-hover">
-					<a class="link" onclick="showÜbungstabelle( FILTER_KÖRPERBEREICHE, 'name' );">ÜBUNGEN ANZEIGEN</a>
+					<a class="link" onclick="showÜbungstabelle( FILTER_KÖRPERBEREICHE, 'übungskategorie' );">ÜBUNGEN ANZEIGEN</a>
 				</div>
 				
 				<table id="übungstabelle" class="invisible">
